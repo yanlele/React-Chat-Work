@@ -6,8 +6,8 @@ class App extends React.Component {
         return (
             <div>
                 <h2>独立团, 团长{boss}</h2>
-                <OneCampsite boss="嗷大喵"></OneCampsite>
-                <Cavalry boss="奶萌兔"></Cavalry>
+                <OneCampsite boss="嗷大喵"/>
+                <Cavalry boss="奶萌兔"/>
             </div>
         )
     }
@@ -19,8 +19,14 @@ class OneCampsite extends React.Component {
         this.state = {
             solders: ['虎子', '大王', '李狗蛋']
         }
+    }
 
-        // this.addSolder=this.addSolder.bind(this);
+    componentWillMount(){
+        console.log(`组件马上就要加载了 componentWillMount`)
+    }
+
+    componentDidMount(){
+        console.log(`组件加载完毕`)
     }
 
     addSolder(name) {
@@ -32,7 +38,7 @@ class OneCampsite extends React.Component {
     }
 
     render() {
-        // const boss='张大彪';
+        console.log(`组件正在加载`);
         return (
             <div>
                 <h2>一营营长，{this.props.boss}</h2>
