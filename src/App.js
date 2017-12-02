@@ -20,7 +20,7 @@ class OneCampsite extends React.Component{
             solders:['虎子','大王','李狗蛋']
         }
 
-        this.addSolder=this.addSolder.bind(this);
+        // this.addSolder=this.addSolder.bind(this);
     }
 
     addSolder(){
@@ -35,7 +35,7 @@ class OneCampsite extends React.Component{
         return(
             <div>
                 <h2>一营营长，{this.props.boss}</h2>
-                <button onClick={this.addSolder}>新兵入伍</button>
+                <button onClick={()=>this.addSolder()}>新兵入伍</button>
                 <ul>
                     {this.state.solders.map((value)=>{
                         return <li key={value}>{value}</li>
