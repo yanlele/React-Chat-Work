@@ -24,7 +24,14 @@ class OneCampsite extends React.Component{
     render(){
         // const boss='张大彪';
         return(
-            <h2>一营营长，{this.props.boss}</h2>
+            <div>
+                <h2>一营营长，{this.props.boss}</h2>
+                <ul>
+                    {this.state.solders.map((value)=>{
+                        return <li key={value}>{value}</li>
+                    })}
+                </ul>
+            </div>
         )
     }
 }
