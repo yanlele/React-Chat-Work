@@ -19,6 +19,8 @@ class OneCampsite extends React.Component{
         this.state={
             solders:['虎子','大王','李狗蛋']
         }
+
+        this.addSolder=this.addSolder.bind(this);
     }
 
     addSolder(){
