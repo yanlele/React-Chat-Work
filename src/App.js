@@ -21,11 +21,19 @@ class OneCampsite extends React.Component{
         }
     }
 
+    addSolder(){
+        console.log('hell add solder');
+        this.setState({
+            solders:[...this.state.solders,'新兵蛋子'+Math.random()]
+        })
+    }
+
     render(){
         // const boss='张大彪';
         return(
             <div>
                 <h2>一营营长，{this.props.boss}</h2>
+                <button onClick={this.addSolder}>新兵入伍</button>
                 <ul>
                     {this.state.solders.map((value)=>{
                         return <li key={value}>{value}</li>
