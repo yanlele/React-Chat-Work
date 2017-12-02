@@ -14,7 +14,12 @@ class App extends React.Component {
 }
 
 class OneCampsite extends React.Component{
-
+    constructor(props){
+        super(props);
+        this.state={
+            solders:['虎子','大王','李狗蛋']
+        }
+    }
 
     render(){
         // const boss='张大彪';
@@ -26,6 +31,7 @@ class OneCampsite extends React.Component{
 
 //如果只有一个render方法的calss 可以直接写成一个function，父子通信可以通过参数的形式来实现，但是首字母一定要大写
 function Cavalry(props){
+
     return (
         <h2>骑兵连连长 {props.boss} , 冲锋！</h2>
     )
