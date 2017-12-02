@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button} from 'antd-mobile'
+import {Button, List} from 'antd-mobile'
 
 class App extends React.Component {
     render() {
@@ -22,17 +22,17 @@ class OneCampsite extends React.Component {
         }
     }
 
-    componentWillMount(){
+    componentWillMount() {
         console.log(`组件马上就要加载了 componentWillMount`)
     }
 
-    componentDidMount(){
+    componentDidMount() {
         console.log(`组件加载完毕`)
     }
 
     addSolder(name) {
 
-        console.log('hell add solder '+name);
+        console.log('hell add solder ' + name);
         this.setState({
             solders: [...this.state.solders, '新兵蛋子' + Math.random()]
         })
@@ -43,12 +43,22 @@ class OneCampsite extends React.Component {
         return (
             <div>
                 <h2>一营营长，{this.props.boss}</h2>
-                <Button type="primary" onClick={this.addSolder.bind(this,'yanle')}>新兵入伍</Button>
-                <ul>
+                <Button type="primary" onClick={this.addSolder.bind(this, 'yanle')}>新兵入伍</Button>
+
+                <List
+                    renderHeader='士兵列表'
+                >
+                    {this.state.solders.map((value) => {
+                        return(
+                        <List.Item key={value}>{value}</List.Item>
+                        )
+                    })}
+                </List>
+{/*                <ul>
                     {this.state.solders.map((value) => {
                         return <li key={value}>{value}</li>
                     })}
-                </ul>
+                </ul>*/}
             </div>
         )
     }
