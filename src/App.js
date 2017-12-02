@@ -1,4 +1,6 @@
 import React from 'react'
+import {Button} from 'antd-mobile'
+import 'antd-mobile/dist/antd-mobile.min.css'
 
 class App extends React.Component {
     render() {
@@ -42,7 +44,7 @@ class OneCampsite extends React.Component {
         return (
             <div>
                 <h2>一营营长，{this.props.boss}</h2>
-                <button onClick={this.addSolder.bind(this,'yanle')}>新兵入伍</button>
+                <Button type="primary" onClick={this.addSolder.bind(this,'yanle')}>新兵入伍</Button>
                 <ul>
                     {this.state.solders.map((value) => {
                         return <li key={value}>{value}</li>
