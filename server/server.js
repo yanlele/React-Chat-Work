@@ -20,18 +20,22 @@ const User =mongoose.model('user',new mongoose.Schema({
     }
 }));
 
-/*
-User.create({
-    user:'yanle',
-    age:25
-},function(err,doc){
+// User.create({
+//     user:'test',
+//     age:25
+// },function(err,doc){
+//     if(!err){
+//         console.log(doc)
+//     }else{
+//         console.log(err)
+//     }
+// });
+
+/*User.remove({},function(err,doc){
     if(!err){
         console.log(doc)
-    }else{
-        console.log(err)
     }
-});
-*/
+})*/
 
 //新建一个app
 const app=express();
