@@ -23,8 +23,9 @@ class OneCampsite extends React.Component {
         // this.addSolder=this.addSolder.bind(this);
     }
 
-    addSolder() {
-        console.log('hell add solder');
+    addSolder(name) {
+
+        console.log('hell add solder '+name);
         this.setState({
             solders: [...this.state.solders, '新兵蛋子' + Math.random()]
         })
@@ -35,7 +36,7 @@ class OneCampsite extends React.Component {
         return (
             <div>
                 <h2>一营营长，{this.props.boss}</h2>
-                <button onClick={this.addSolder.bind(this)}>新兵入伍</button>
+                <button onClick={this.addSolder.bind(this,'yanle')}>新兵入伍</button>
                 <ul>
                     {this.state.solders.map((value) => {
                         return <li key={value}>{value}</li>
