@@ -1,4 +1,3 @@
-
 const ADD_GUN='add';//加机关枪
 const REMOVE_RUN='subtract';//减机关枪
 //通过reducer建立
@@ -23,5 +22,13 @@ export function addGun(){
 export function removeGun(){
     return {
         type:REMOVE_RUN
+    }
+}
+
+export function addGunAsync(){
+    return dispatch=>{
+        setTimeout(()=>{
+            dispatch(addGun())
+        },2000)
     }
 }
