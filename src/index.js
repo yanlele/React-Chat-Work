@@ -20,6 +20,15 @@ const store = createStore(counter);
 const init =store.getState();
 console.log(init);
 
+//注册一个控制方法
+function listener(){
+    const current=store.getState();
+    console.log(`现在有的机关枪有：${current}把`)
+}
+//订阅控制方法,每次状态改变都要执行一次listener方法
+store.subscribe(listener)
+
+
 //派发事件 传递action
 store.dispatch({
     type:'add'
