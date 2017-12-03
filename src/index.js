@@ -25,7 +25,7 @@ function listener(){
     const current=store.getState();
     console.log(`现在有的机关枪有：${current}把`)
 }
-//订阅控制方法,每次状态改变都要执行一次listener方法
+//订阅控制方法,每次状态改变都要执行一次listener方法r
 store.subscribe(listener)
 
 
