@@ -15,7 +15,7 @@ export function counter(state = 0, action) {
 }
 
 //action creator
-export function addGUM(){
+export function addGUN(){
     return {
         type:ADD_GUN
     }
