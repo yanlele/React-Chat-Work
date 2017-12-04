@@ -9,16 +9,12 @@ class App extends React.Component{
     }*/
 
     render(){
-        const num=this.props.num
-        const addGun=this.props.addGun;
-        const removeGun=this.props.removeGun;
-        const addGunAsync=this.props.addGunAsync;
         return(
             <div>
-                <h1>现有机关枪 {num} 把</h1>
-                <button onClick={addGun}>申请一把机枪</button>
-                <button onClick={removeGun}>回收武器</button>
-                <button onClick={addGunAsync}>拖两天再给你抢</button>
+                <h1>现有机关枪 {this.props.num} 把</h1>
+                <button onClick={this.props.addGun}>申请一把机枪</button>
+                <button onClick={this.props.removeGun}>回收武器</button>
+                <button onClick={this.props.addGunAsync}>拖两天再给你抢</button>
             </div>
         )
     }
