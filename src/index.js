@@ -4,7 +4,7 @@ import thunk from 'redux-thunk'//这个可以让我们的redux拥有处理异步
 import {Provider} from 'react-redux'
 import App from './App'
 import {createStore, applyMiddleware, compose} from 'redux'
-import {counter, addGun, removeGun, addGunAsync} from './index.redux'
+import {counter} from './index.redux'
 
 const reduxDevtools = window.devToolsExtension ? window.devToolsExtension() : () => {
 };
