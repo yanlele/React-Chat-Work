@@ -23,6 +23,23 @@ function Cavalry(){
     return <h2>骑兵连</h2>
 }
 
+class Test extends React.Component{
+    constructor(props){
+        super(props)
+    }
+
+    componentDidMount(){
+        this.props.history.push('/');
+    }
+
+    render(){
+
+        return (
+            <h2>测试用的组件</h2>
+        )
+    }
+}
+
 ReactDom.render(
     ( <Provider store={store}>
         <BrowserRouter>
@@ -40,11 +57,12 @@ ReactDom.render(
                 </ul>
                 {/*exact可以让我们的路由完全匹配*/}
                 <Route path='/' exact component={App}/>
-                <Route path='/erying' component={Erying}/>
-                <Route path='/cavalry' component={Cavalry}/>
+                <Route path='/:location' exact component={Test}/>
+                {/*<Route path='/erying' component={Erying}/>*/}
+                {/*<Route path='/cavalry' component={Cavalry}/>*/}
             </div>
         </BrowserRouter>
     </Provider> ),
     document.getElementById('root')
-)
+);
 
