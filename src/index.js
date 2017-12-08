@@ -29,13 +29,14 @@ class Test extends React.Component{
     }
 
     componentDidMount(){
-        this.props.history.push('/');
+        // this.props.history.push('/');
+        console.log(this.props.match.params)
     }
 
     render(){
 
         return (
-            <h2>测试用的组件</h2>
+            <h2>测试用的组件 {this.props.match.params.location}</h2>
         )
     }
 }
