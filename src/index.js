@@ -8,11 +8,9 @@ import {BrowserRouter, Route, Link, Redirect, Switch} from 'react-router-dom'
 import {createStore, applyMiddleware, compose} from 'redux'
 import {counter} from './index.redux'
 
-const reduxDevtools = window.devToolsExtension ? window.devToolsExtension() : () => {
-};
+
 const store = createStore(counter, compose(
-    applyMiddleware(thunk),
-    reduxDevtools
+    applyMiddleware(thunk)
 ));
 
 function Erying() {
