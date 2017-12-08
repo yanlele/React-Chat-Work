@@ -13,7 +13,6 @@ import {
 import reducers from './reducer'
 import Auth from './Auth.js'
 import Dashboard from './Dashboard'
-import './config'
 import 'antd-mobile/dist/antd-mobile.css';
 
 const store = createStore(reducers, compose(
