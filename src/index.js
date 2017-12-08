@@ -56,12 +56,16 @@ ReactDom.render(
                         <Link to='/cavalry'>骑兵连</Link>
                     </li>
                 </ul>
-                {/*exact可以让我们的路由完全匹配*/}
-                <Route path='/' exact component={App}/>
-                {/*<Route path='/:location' exact component={Test}/>*/}
-                <Route path='/erying' component={Erying}/>
-                <Route path='/cavalry' component={Cavalry}/>
-                <Redirect to='/cavalry'></Redirect>
+                {/*Switch只渲染第一次匹配中的路由*/}
+                <Switch>
+                    {/*exact可以让我们的路由完全匹配*/}
+                    <Route path='/' exact component={App}/>
+                    {/*<Route path='/:location' exact component={Test}/>*/}
+                    <Route path='/erying' component={Erying}/>
+                    <Route path='/cavalry' component={Cavalry}/>
+                    {/*<Redirect to='/cavalry'></Redirect>*/}
+                    <Route path='/:location' component={Test}/>
+                </Switch>
             </div>
         </BrowserRouter>
     </Provider> ),
