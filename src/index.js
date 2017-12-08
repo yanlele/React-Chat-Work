@@ -3,7 +3,7 @@ import ReactDom from 'react-dom';
 import thunk from 'redux-thunk'//这个可以让我们的redux拥有处理异步的能力
 import {Provider} from 'react-redux'
 import App from './App'
-import {BrowserRouter, Route, Link} from 'react-router-dom'
+import {BrowserRouter, Route, Link, Redirect, Switch} from 'react-router-dom'
 
 import {createStore, applyMiddleware, compose} from 'redux'
 import {counter} from './index.redux'
@@ -19,21 +19,21 @@ function Erying() {
     return <h2>二营</h2>
 }
 
-function Cavalry(){
+function Cavalry() {
     return <h2>骑兵连</h2>
 }
 
-class Test extends React.Component{
-    constructor(props){
+class Test extends React.Component {
+    constructor(props) {
         super(props)
     }
 
-    componentDidMount(){
+    componentDidMount() {
         // this.props.history.push('/');
-        console.log(this.props.match.params)
+        console.log(this.props)
     }
 
-    render(){
+    render() {
 
         return (
             <h2>测试用的组件 {this.props.match.params.location}</h2>
@@ -58,9 +58,10 @@ ReactDom.render(
                 </ul>
                 {/*exact可以让我们的路由完全匹配*/}
                 <Route path='/' exact component={App}/>
-                <Route path='/:location' exact component={Test}/>
-                {/*<Route path='/erying' component={Erying}/>*/}
-                {/*<Route path='/cavalry' component={Cavalry}/>*/}
+                {/*<Route path='/:location' exact component={Test}/>*/}
+                <Route path='/erying' component={Erying}/>
+                <Route path='/cavalry' component={Cavalry}/>
+                <Redirect to='/cavalry'></Redirect>
             </div>
         </BrowserRouter>
     </Provider> ),
