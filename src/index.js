@@ -24,9 +24,9 @@ ReactDom.render(
     (<Provider store={store}>
         <BrowserRouter>
             <Switch>
-                <Route path='/login' component={Auth}></Route>
-                <Route path='/dashboard' component={Dashboard}></Route>
-                <Redirect to='/dashboard'></Redirect>
+                <Route path='/login' component={Auth}/>
+                <Route path='/dashboard' component={Dashboard}/>
+                <Redirect to='/dashboard'/>
             </Switch>
         </BrowserRouter>
     </Provider>),

@@ -50,7 +50,8 @@ app.get('/',function(req,res,next){
 app.get('/data',function(req,res){
     res.json({
         name:'yanle for react app',
-        type:'json'
+        type:'json',
+        age:25
     })
 });
 
