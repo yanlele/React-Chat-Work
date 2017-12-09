@@ -11,10 +11,26 @@ import axios from 'axios'
 	{login, getUserData}
 )
 class Auth extends React.Component{
+/*	constructor(props){
+		super(props);
+		this.state={
+			data:{}
+		}
+	}
+
 	componentDidMount(){
 		axios.get('/data').then((res)=>{
-			console.log(res);
+			if(res.status===200){
+				this.setState({
+					data:res.data
+				})
+			}
+			console.log(this.state.data);
 		})
+	}*/
+
+	componentDidMount(){
+		this.props.getUserData()
 	}
 
 	render(){

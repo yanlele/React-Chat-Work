@@ -9,6 +9,7 @@ const initState = {
 	age:20
 }
 export function auth(state=initState,action){
+	console.log()
 	switch(action.type){
 		case LOGIN:
 			return {...state, isAuth:true}
