@@ -11,9 +11,8 @@ import {
 } from 'react-router-dom'
 
 import reducers from './reducer'
-import Auth from './Auth.js'
-import Dashboard from './Dashboard'
 import 'antd-mobile/dist/antd-mobile.css';
+import './config'
 
 const store = createStore(reducers, compose(
     applyMiddleware(thunk),
@@ -23,11 +22,7 @@ const store = createStore(reducers, compose(
 ReactDom.render(
     (<Provider store={store}>
         <BrowserRouter>
-            <Switch>
-                <Route path='/login' component={Auth}/>
-                <Route path='/dashboard' component={Dashboard}/>
-                <Redirect to='/dashboard'/>
-            </Switch>
+
         </BrowserRouter>
     </Provider>),
     document.getElementById('root')
