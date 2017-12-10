@@ -10,6 +10,7 @@ import {
     Switch
 } from 'react-router-dom'
 
+import AuthRoute from './component/authroute/authroute'
 import reducers from './reducer'
 import 'antd-mobile/dist/antd-mobile.css';
 import './config'
@@ -27,7 +28,7 @@ ReactDom.render(
     (<Provider store={store}>
         <BrowserRouter>
             <div>
-               {/* <AuthRoute></AuthRoute>*/}
+                <AuthRoute></AuthRoute>
                 <Route path="/" exact component={Login}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/register" component={Register}/>
