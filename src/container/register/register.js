@@ -1,8 +1,14 @@
 import React from 'react'
 import Logo from '../../component/logo/logo'
 import {List,InputItem,Radio,WingBlank,WhiteSpace,Button} from 'antd-mobile'
+import {connect} from 'react-redux'
+import {register} from "../../redux/user.redux";
+import '../../index.css'
 
-
+@connect(
+    state=>state.user,
+    {register}
+)
 class Register extends React.Component{
     constructor(props){
         super(props);
@@ -21,7 +27,7 @@ class Register extends React.Component{
     }
 
     handleRegister(){
-        console.log(this.state)
+        this.props.register(this.state)
     }
 
     render(){
@@ -31,6 +37,7 @@ class Register extends React.Component{
                 <Logo/>
                 <WingBlank>
                     <h2>注册页</h2>
+                    {this.props.msg?<p className='error-msg'>{this.props.msg}</p>:null}
                     <List>
                         <InputItem
                             onChange={v=>this.handleChange('user',v)}
