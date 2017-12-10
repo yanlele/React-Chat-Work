@@ -1,4 +1,5 @@
 const express=require('express');
+const utils=require('utility');
 const router=express.Router();
 const model=require('./model');
 const User=model.getModel('user');
@@ -22,7 +23,7 @@ router.post('/register',function(req,res){
         }
 
         //数据入库
-        User.create({user,pwd,type},function(e,d){
+        User.create({user,type,pwd:utils.md5(pwd)},function(e,d){
             if(e){
                 res.json({
                     code:1,
