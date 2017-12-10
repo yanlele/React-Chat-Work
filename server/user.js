@@ -23,7 +23,7 @@ router.post('/register',function(req,res){
         }
 
         //数据入库
-        User.create({user,type,pwd:utils.md5(pwd)},function(e,d){
+        User.create({user,type,pwd:md5Pwd(pwd)},function(e,d){
             if(e){
                 res.json({
                     code:1,
@@ -45,5 +45,10 @@ router.get('/info',function(req,res){
         code:1
     })
 });
+
+function md5Pwd(pwd){
+    const salt='yanle_is_good_19920106!@#$';
+    return utils.md5(utils.md5(pwd+salt));
+}
 
 module.exports=router;
