@@ -14,7 +14,7 @@ router.get('/list',function(req,res){
 //登录功能
 router.post('/login',function(req,res){
     const {user,pwd}=req.body;
-    User.findOne({user,pwd:md5Pwd(pwd)},function(err,doc){
+    User.findOne({user,pwd:md5Pwd(pwd)},{'pwd':0},function(err,doc){
         if(!doc){
             res.status(500).json({
                 code:1,
