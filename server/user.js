@@ -11,8 +11,8 @@ router.get('/list',function(req,res){
 
 //注册功能
 router.post('/register',function(req,res){
-    console.log(req.body.data);
-    const {user,pwd,type}=res.body.data;
+    console.log(req.body);
+    const {user,pwd,type}=req.body;
     User.findOne({user:user},function(err,doc){
         if(doc){
             res.json({
