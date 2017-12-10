@@ -5,10 +5,29 @@ const model=require('./model');
 const User=model.getModel('user');
 
 router.get('/list',function(req,res){
+    // User.remove({});
    User.find({},function(err,doc){
        res.json(doc)
    })
 });
+
+//登录功能
+router.post('/login',function(req,res){
+    const {user,pwd}=req.body;
+    User.findOne({user,pwd:md5Pwd(pwd)},function(err,doc){
+        if(!doc){
+            res.status(500).json({
+                code:1,
+                msg:'用户名或者密码错误'
+            })
+        }
+        res.status(200).json({
+            code:0,
+            data:doc
+        })
+    })
+});
+
 
 //注册功能
 router.post('/register',function(req,res){

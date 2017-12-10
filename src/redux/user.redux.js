@@ -20,7 +20,7 @@ export function user(state=initState,action){
         case REGISTER_SUCCESS:
             return {...state,msg:'',redirectTo:getRedirectPath(action.payload),isAuth:true,...action.payload};
         case LOGIN_SUCCESS:
-
+            return {...state,msg:'',redirectTo:getRedirectPath(action.payload),isAuth:true,...action.payload};
         case ERROR_MEG:
             return {...state,isAuth:false,msg:action.msg};
         default:
