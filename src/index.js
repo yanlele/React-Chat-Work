@@ -24,19 +24,14 @@ const store = createStore(reducers, compose(
     window.devToolsExtension ? window.devToolsExtension() : f => f
 ));
 
-//测试用的boss
-function Boss(){
-    return <h2>boss</h2>
-}
 
 ReactDom.render(
     (<Provider store={store}>
         <BrowserRouter>
             <div>
                 <AuthRoute></AuthRoute>
-                <Route path="/login" component={Login}/>
-                <Route paht='/boss' component={Boss}/>
-                <Route path="/register" component={Register}/>
+                <Route path="/login" exact component={Login}/>
+                <Route path="/register" exact component={Register}/>
             </div>
         </BrowserRouter>
     </Provider>),
