@@ -1,26 +1,31 @@
 import axios from 'axios'
+import {withRouter} from 'react-router-dom'
 import {getRedirectPath} from "../util/util";
 
 //定义常量
 const REGISTER_SUCCESS='REGISTER_SUCCESS';
 const ERROR_MEG='ERROR_MEG';
 const LOGIN_SUCCESS='LOGIN_SUCCESS';
+const LOAD_DATA='LOAD_DATA';
 
+/*state*/
 const initState={
     redirectTo:'',
     isAuth:false,
     msg:'',
     user:'',
-    pwd:'',
     type:''
 };
-//reducer
+
+/*reducer*/
 export function user(state=initState,action){
     switch (action.type){
         case REGISTER_SUCCESS:
             return {...state,msg:'',redirectTo:getRedirectPath(action.payload),isAuth:true,...action.payload};
         case LOGIN_SUCCESS:
             return {...state,msg:'',redirectTo:getRedirectPath(action.payload),isAuth:true,...action.payload};
+        case LOAD_DATA:
+            return {...state,...action.payload};
         case ERROR_MEG:
             return {...state,isAuth:false,msg:action.msg};
         default:
@@ -28,7 +33,7 @@ export function user(state=initState,action){
     }
 }
 
-//action map
+/*action map*/
 function errorMsg(msg){
     return {
         type:ERROR_MEG,
@@ -47,6 +52,15 @@ function loginSuccess(data){
     }
 }
 
+
+/*action*/
+//获取用户信息
+export function loadData(userinfo){
+    return {
+        type:LOAD_DATA,
+        payload:userinfo
+    }
+}
 //登录功能
 export function login({user,pwd}){
     if(!user||!pwd){

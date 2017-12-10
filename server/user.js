@@ -52,19 +52,25 @@ router.post('/register',function(req,res){
         }
 
         //数据入库
-        User.create({user,type,pwd:md5Pwd(pwd)},function(e,d){
+        const userModel=new User({user,type,pwd:md5Pwd(pwd)});
+        userModel.save(function(e,d){
             if(e){
                 res.json({
                     code:1,
                     msg:'系统错误'
                 })
             }else{
+                const {user,type,_id}=d;
+                res.cookie('userid',_id);
                 res.json({
                     code:0,
+                    data:{user,type,_id},
                     msg:'注册成功'
                 })
             }
         })
+
+
     })
 });
 
