@@ -16,6 +16,7 @@ import 'antd-mobile/dist/antd-mobile.css';
 import './config'
 
 /*导入留有*/
+import BossInfo from './container/bossinfo/bossinfo'
 import Login from './container/login/login'
 import Register from './container/register/register'
 
@@ -29,9 +30,12 @@ ReactDom.render(
     (<Provider store={store}>
         <BrowserRouter>
             <div>
-                <AuthRoute></AuthRoute>
-                <Route path="/login" exact component={Login}/>
-                <Route path="/register" exact component={Register}/>
+                <AuthRoute/>
+                <Switch>
+                    <Route path="/login"  component={Login}/>
+                    <Route path="/register"  component={Register}/>
+                    <Route path="/bossinfo"  component={BossInfo}/>
+                </Switch>
             </div>
         </BrowserRouter>
     </Provider>),

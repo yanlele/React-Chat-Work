@@ -23,18 +23,18 @@ router.post('/login',function(req,res){
     const {user,pwd}=req.body;
     User.findOne({user,pwd:md5Pwd(pwd)},_filter,function(err,doc){
         if(!doc){
-            res.status(500).json({
+            res.json({
                 code:1,
                 msg:'用户名或者密码错误'
             })
+        }else{
+            res.cookie('userid',doc._id);
+            res.status(200).json({
+                code:0,
+                data:doc
+            })
         }
 
-        res.cookie('userid',doc._id);
-
-        res.status(200).json({
-            code:0,
-            data:doc
-        })
     })
 });
 
