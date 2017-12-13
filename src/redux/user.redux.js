@@ -1,5 +1,4 @@
 import axios from 'axios'
-import {withRouter} from 'react-router-dom'
 import {getRedirectPath} from "../util/util";
 
 //定义常量
@@ -40,7 +39,7 @@ function errorMsg(msg){
 
 //验证信息的action
 function authSuccess(data){
-    return {type:'AUTH_SUCCESS',payload:data}
+    return {type:AUTH_SUCCESS,payload:data}
 }
 
 

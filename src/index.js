@@ -32,9 +32,10 @@ ReactDom.render(
             <div>
                 <AuthRoute/>
                 <Switch>
-                    <Route path="/login"  component={Login}/>
-                    <Route path="/register"  component={Register}/>
-                    <Route path="/bossinfo"  component={BossInfo}/>
+                    <Route path='/' exact component={Login}/>
+                    <Route path="/login" exact component={Login}/>
+                    <Route path="/register" exact component={Register}/>
+                    <Route path="/bossinfo" exact component={BossInfo}/>
                 </Switch>
             </div>
         </BrowserRouter>

@@ -32,7 +32,7 @@ router.post('/update', function (req, res) {
             user: doc.user,
             type: doc.type,
         }, body)
-        res.json({bode: 0, data})
+        res.json({code: 0, data})
     })
 });
 
@@ -59,7 +59,6 @@ router.post('/login', function (req, res) {
 
 //注册功能
 router.post('/register', function (req, res) {
-    console.log(req.body);
     const {user, pwd, type} = req.body;
     User.findOne({user: user}, function (err, doc) {
         if (doc) {
