@@ -19,6 +19,7 @@ import './config'
 import BossInfo from './container/bossinfo/bossinfo'
 import Login from './container/login/login'
 import Register from './container/register/register'
+import GeniusInfo from './container/geniusinfo/geniusinfo'
 
 const store = createStore(reducers, compose(
     applyMiddleware(thunk),
@@ -36,6 +37,7 @@ ReactDom.render(
                     <Route path="/login" exact component={Login}/>
                     <Route path="/register" exact component={Register}/>
                     <Route path="/bossinfo" exact component={BossInfo}/>
+                    <Route path="/geniusinfo" exact component={GeniusInfo}/>
                 </Switch>
             </div>
         </BrowserRouter>

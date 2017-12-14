@@ -38,7 +38,8 @@ function errorMsg(msg){
 }
 
 //验证信息的action
-function authSuccess(data){
+function authSuccess(obj){
+    const {pwd,...data}=obj;
     return {type:AUTH_SUCCESS,payload:data}
 }
 
