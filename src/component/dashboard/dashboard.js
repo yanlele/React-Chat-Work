@@ -3,10 +3,8 @@ import {connect} from 'react-redux'
 import {NavBar} from 'antd-mobile'
 import {Switch, Route} from 'react-router-dom'
 import NavLinkBar from '../navlink/navlink'
+import Boss from '../../component/boss/boss'
 
-function Boss(){
-    return <div>Boss首页</div>
-}
 
 function Genius(){
     return <div>Genius首页</div>

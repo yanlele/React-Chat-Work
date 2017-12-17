@@ -15,7 +15,9 @@ router.get('/list', function (req, res) {
     /*    User.remove({},function(err,doc){
             res.json(doc)
         });*/
-    User.find({}, function (err, doc) {
+
+    const { type }=req.query;
+    User.find({type}, function (err, doc) {
         res.json(doc)
     })
 });
