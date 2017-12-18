@@ -4,7 +4,7 @@ import io from 'socket.io-client'
 import {connect} from 'react-redux'
 import {getMsgList, sendMsg, recvMsg, readMsg} from '../../redux/chat.redux'
 import {getChatId} from '../../util'
-const socket = io('ws://localhost:8082')
+const socket = io('ws://localhost:8082');
 
 
 // $('#test').find('img')
@@ -16,7 +16,7 @@ const socket = io('ws://localhost:8082')
 )
 class Chat extends React.Component{
 	constructor(props){
-		super(props)
+		super(props);
 		this.state = {text:'',msg:[]}
 	}
 	componentDidMount(){
@@ -35,16 +35,15 @@ class Chat extends React.Component{
 		},0)
 	}
 	handleSubmit(){
-		// socket.emit('sendmsg',{text:this.state.text})
-		// this.setState({text:''})
+
 		const from = this.props.user._id;
-		const to = this.props.match.params.user;
+		const to = this.props.match.params.user;//这个是获取url上面的参数
 		const msg = this.state.text;
 		this.props.sendMsg({from,to,msg});
 		this.setState({
 			text:'',
 			showEmoji:false
-		})
+		});
 	}
 	render(){
 		const emoji = '😀 😃 😄 😁 😆 😅 😂 😊 😇 🙂 🙃 😉 😌 😍 😘 😗 😙 😚 😋 😜 😝 😛 🤑 🤗 🤓 😎 😏 😒 😞 😔 😟 😕 🙁 😣 😖 😫 😩 😤 😠 😡 😶 😐 😑 😯 😦 😧 😮 😲 😵 😳 😱 😨 😰 😢 😥 😭 😓 😪 😴 🙄 🤔 😬 🤐 😷 🤒 🤕 😈 👿 👹 👺 💩 👻 💀 ☠️ 👽 👾 🤖 🎃 😺 😸 😹 😻 😼 😽 🙀 😿 😾 👐 🙌 👏 🙏 👍 👎 👊 ✊ 🤘 👌 👈 👉 👆 👇 ✋  🖐 🖖 👋  💪 🖕 ✍️  💅 🖖 💄 💋 👄 👅 👂 👃 👁 👀 '
@@ -59,7 +58,7 @@ class Chat extends React.Component{
 			return null
 		}
 		const chatid = getChatId(userid, this.props.user._id)
-		const chatmsgs = this.props.chat.chatmsg.filter(v=>v.chatid==chatid)
+		const chatmsgs = this.props.chat.chatmsg.filter(v=>v.chatid===chatid)
 		return (
 			<div id='chat-page'>
 				<NavBar
@@ -75,7 +74,7 @@ class Chat extends React.Component{
 				
 				{chatmsgs.map(v=>{
 					const avatar = require(`../img/${users[v.from].avatar}.png`)
-					return v.from==userid?(
+					return v.from===userid?(
 						<List key={v._id}>
 							<Item
 								thumb={avatar}
@@ -118,7 +117,7 @@ class Chat extends React.Component{
 									<span onClick={()=>this.handleSubmit()} >发送</span>
 								</div>
 							}
-						></InputItem>
+						/>
 					</List>
 
 					{this.state.showEmoji?<Grid 
