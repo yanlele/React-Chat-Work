@@ -9,7 +9,10 @@ const server=require('http').Server(app);
 const io=require('socket.io')(server);
 
 io.on('connection',function(socket){
-	console.log(`user is login`)
+	// console.log(`user is login`);
+	socket.on('sendMessage',function(data){
+		console.log(data)
+	})
 });
 
 
