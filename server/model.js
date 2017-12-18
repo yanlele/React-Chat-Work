@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 // 链接mongo 并且使用imooc这个集合
-const DB_URL = 'mongodb://localhost:27017/002_ReactAppChatWork'
-mongoose.connect(DB_URL)
+const DB_URL = 'mongodb://localhost:27017/002_ReactAppChatWork';
+mongoose.connect(DB_URL);
 
 
 const models = {
@@ -20,6 +20,12 @@ const models = {
 		'money':{'type':String}
 	},
 	chat:{
+		'chatid':{'type':String, require:true},
+		'from':{'type':String,'require':true},
+		'to':{'type':String,'require':true},
+		'read':{'type':Boolean,default:false},
+		'content':{'type':String,'require':true,'default':''},
+		'create_time':{'type':Number,'default':Date.now}
 	}
 }
 
