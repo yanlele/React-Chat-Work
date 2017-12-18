@@ -10,8 +10,13 @@ const io=require('socket.io')(server);
 
 io.on('connection',function(socket){
 	// console.log(`user is login`);
+
+    //接受前端反馈过来的信息信息
 	socket.on('sendMessage',function(data){
-		console.log(data)
+		console.log(data);
+
+		//把接受的信息广播到全局
+        io.emit('receiveMessage',data);
 	})
 });
 
